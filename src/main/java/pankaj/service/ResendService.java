@@ -3,6 +3,7 @@ package pankaj.service;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -27,7 +28,7 @@ public class ResendService {
                 .uri("/emails")
                 .bodyValue(new EmailRequest("onboarding@resend.dev", to, subject, html))
                 .retrieve()
-                .onStatus(HttpStatusCode::isError,
+                .onStatus(HttpStatus::isError,
                         response -> response.bodyToMono(String.class)
                                 .flatMap(errorBody -> Mono.error(new RuntimeException("Resend API error: " + errorBody))))
                 .bodyToMono(String.class)
