@@ -1,0 +1,253 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap demo</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+	crossorigin="anonymous">
+</head>
+
+<body>
+	<!-- Navbar -->
+
+	<nav
+		class=" navbar navbar-expand-lg w-full fixed-top-0 left-0 bg-white dark:bg-gray-900 shadow z-50 ">
+
+		<div
+			class="container-fluid bg-secondary max-w-6x1 mx-auto flex items-center justify-between px4 py3 bg-dark">
+			<div class=" dropdown">
+				<img src="image/pklogo.png" class="rounded-circle" height="60"
+					alt="Black and White Portrait of a Man" /> <span
+					class="text-white">Pankaj Dangi</span>
+
+			</div>
+			<div class="align-items-center w-500">
+				<button class="navbar-toggler text-bg-light" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon text-bg-light"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a
+							class="nav-link active text-light bg-dark" aria-current="page"
+							href="/">Home</a></li>
+						<li class="nav-item"><a
+							class="nav-link active text-light bg-dark" aria-current="page"
+							href="about">About</a></li>
+						<li class="nav-item"><a
+							class="nav-link active text-light bg-dark" aria-current="page"
+							href="skills">Skills</a></li>
+						<li class="nav-item"><a
+							class="nav-link active text-light bg-dark" aria-current="page"
+							href="project">Project</a></li>
+						<li class="nav-item"><a
+							class="nav-link active text-light bg-dark" aria-current="page"
+							href="contact">Contact</a></li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+
+	</nav>
+
+
+	<div class="login-wrapper py-5" style="margin-top: 60px;">
+		<div data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300"
+			class="container aos-init aos-animate">
+			<div class="justify-content-center row">
+				<div class="col-lg-5 col-md-6 col-12">
+					<div class="p-4 shadow-lg login-card rounded-4 card">
+						<h1 class="text-center mb-4 text-danger">Register</h1>
+						<h6 class="text-center scale-text">🔒 Please login or
+							register to view my education details 🎓</h6>
+						<hr>
+						<form action="save" method="POST">
+							<div class="mb-3">
+								<label class="form-label" for="forname">Full Name</label>
+								<div class="input-group">
+									<span class="input-group-text"> <svg
+											stroke="currentColor" fill="currentColor" stroke-width="0"
+											viewBox="0 0 448 512" height="1em" width="1em"
+											xmlns="https://www.w3.org/2000/svg">
+											<path
+												d="M 224 256 c 70.7 0 128 -57.3 128 -128 S 294.7 0 224 0 S 96 57.3 96 128 s 57.3 128 128 128 Z m 89.6 32 h -16.7 c -22.2 10.2 -46.9 16 -72.9 16 s -50.6 -5.8 -72.9 -16 h -16.7 C 60.2 288 0 348.2 0 422.4 V 464 c 0 26.5 21.5 48 48 48 h 352 c 26.5 0 48 -21.5 48 -48 v -41.6 c 0 -74.2 -60.2 -134.4 -134.4 -134.4 Z">
+											</path>
+										</svg>
+									</span> <input placeholder="Enter u full name" required id="forname"
+										type="text" class="form-control" name="name">
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="formEmail1" class="form-label">Email</label>
+								<div class="input-group">
+									<span class="input-group-text"> <svg
+											stroke="currentColor" fill="currentColor" stroke-width="0"
+											viewBox="0 0 512 512" height="1em" width="1em"
+											xmlns="https://www.w3.org/2000/svg">
+											<path
+												d="M 502.3 190.8 c 3.9 -3.1 9.7 -0.2 9.7 4.7 V 400 c 0 26.5 -21.5 48 -48 48 H 48 c -26.5 0 -48 -21.5 -48 -48 V 195.6 c 0 -5 5.7 -7.8 9.7 -4.7 c 22.4 17.4 52.1 39.5 154.1 113.6 c 21.1 15.4 56.7 47.8 92.2 47.6 c 35.7 0.3 72 -32.8 92.3 -47.6 c 102 -74.1 131.6 -96.3 154 -113.7 Z M 256 320 c 23.2 0.4 56.6 -29.2 73.4 -41.4 c 132.7 -96.3 142.8 -104.7 173.4 -128.7 c 5.8 -4.5 9.2 -11.5 9.2 -18.9 v -19 c 0 -26.5 -21.5 -48 -48 -48 H 48 C 21.5 64 0 85.5 0 112 v 19 c 0 7.4 3.4 14.3 9.2 18.9 c 30.6 23.9 40.7 32.4 173.4 128.7 c 16.8 12.2 50.2 41.8 73.4 41.4 Z">
+											</path>
+										</svg>
+									</span> <input placeholder="Enter email" required id="formEmail"
+										type="email" class="form-control" name="email">
+								</div>
+							</div>
+
+							<div class="mb-3">
+								<label for="formPassword1" class="form-label">Password</label>
+
+								<div class="input-group">
+									<span class="input-group-text"> <svg
+											stroke="currentColor" fill="currentColor" stroke-width="0"
+											viewBox="0 0 448 512" height="1em" width="1em"
+											xmlns="https://www.w3.org/2000/svg">
+											<path
+												d="M 400 224 h -24 v -72 C 376 68.2 307.8 0 224 0 S 72 68.2 72 152 v 72 H 48 c -26.5 0 -48 21.5 -48 48 v 192 c 0 26.5 21.5 48 48 48 h 352 c 26.5 0 48 -21.5 48 -48 V 272 c 0 -26.5 -21.5 -48 -48 -48 Z m -104 0 H 152 v -72 c 0 -39.7 32.3 -72 72 -72 s 72 32.3 72 72 v 72 Z">
+											</path>
+										</svg>
+									</span> <input placeholder="Enter password" required id="formPassword"
+										type="password" class="form-control" name="password">
+									<span class="input-group-text"> <svg
+											stroke="currentColor" fill="currentColor" stroke-width="0"
+											viewBox="0 0 576 512" height="1em" width="1em"
+											xmlns="https://www.w3.org/2000/svg">
+											<path
+												d="M 572.52 241.4 C 518.29 135.59 410.93 64 288 64 S 57.68 135.64 3.48 241.41 a 32.35 32.35 0 0 0 0 29.19 C 57.71 376.41 165.07 448 288 448 s 230.32 -71.64 284.52 -177.41 a 32.35 32.35 0 0 0 0 -29.19 Z M 288 400 a 144 144 0 1 1 144 -144 a 143.93 143.93 0 0 1 -144 144 Z m 0 -240 a 95.31 95.31 0 0 0 -25.31 3.79 a 47.85 47.85 0 0 1 -66.9 66.9 A 95.78 95.78 0 1 0 288 160 Z">
+											</path>
+										</svg>
+									</span>
+								</div>
+							</div>
+
+							<div class="d-grid mb-3">
+								<button type="submit" class="btn btn-danger">Register</button>
+							</div>
+						</form>
+						<p class="text-center mt-3 fs-6">
+							Already have an account? <a class="text-decoration-none"
+								href="/login" data-discover="true">Login here</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Footer -->
+	<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+		<div
+			class="container-fluid bg-secondary max-w-6x1 mx-auto flex items-center justify-between px4 py3 bg-dark">
+			<!-- Section: Social media -->
+			<section
+				class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+				<!-- Left -->
+				<div class="me-5 d-none d-lg-block">
+					<h2 class="fw-bold text-white">
+						Let's <span class="fw-bold mb-4 text-danger"> Connect</span> there
+					</h2>
+
+
+				</div>
+				<!-- Left -->
+
+				<!-- Right -->
+				<div>
+					<a href="https://www.facebook.com/profile.php?id=100081054109854"
+						class="me-4 text-reset"> <i
+						class="fab fa-facebook-f text-white"></i>
+					</a> <a href="https://www.instagram.com" class="me-4 text-reset"> <i
+						class="fab fa-instagram text-white"></i>
+					</a> <a href="https://in.linkedin.com" class="me-4 text-reset"> <i
+						class="fab fa-linkedin text-white"></i>
+					</a> <a href="https://github.com" class="me-4 text-reset "> <i
+						class="fab fa-github text-white"></i>
+					</a>
+				</div>
+				<!-- Right -->
+			</section>
+			<!-- Section: Social media -->
+
+			<!-- Section: Links  -->
+			<section class="">
+				<div class="container text-center text-md-start mt-5">
+					<!-- Grid row -->
+					<div class="row mt-3">
+						<!-- Grid column -->
+						<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+							<!-- Content -->
+							<h6 class="text-uppercase fw-bold mb-4">
+								<i class="fas fa-gem me-3 text-light"></i> <span
+									class="text-white">Pankaj Dangi</span>
+							</h6>
+							<p class="text-white">JAVA Full Stack Developer with a strong
+								foundation in full-stack web development. Passionate about
+								crafting responsive, user-friendly web apps and always open to
+								new learning opportunities.</p>
+						</div>
+
+						<!-- Grid column -->
+						<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+							<!-- Links -->
+							<h6 class="text-uppercase fw-bold mb-4 text-danger">
+								Navigation</h6>
+							<p class="text-white">
+								<a href="/" class="text-reset">Home</a>
+							</p>
+							<p class="text-white">
+								<a href="about" class="text-reset">About me</a>
+							</p>
+							<p class="text-white">
+								<a href="skills" class="text-reset">Skills</a>
+							</p>
+							<p class="text-white">
+								<a href="project" class="text-reset">Project</a>
+							</p>
+							<p class="text-white">
+								<a href="contact" class="text-reset">Contact me</a>
+							</p>
+						</div>
+						<!-- Grid column -->
+
+						<!-- Grid column -->
+						<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+							<!-- Links -->
+							<h6 class="text-uppercase fw-bold mb-4 text-danger">Contact</h6>
+							<p class="text-white">
+								<i class="fas fa-home me-3"></i> Zone-1 Maharana Pratap Nagar
+								Bhopal, Madhya Pradesh, India, 462011
+							</p>
+							<p class="text-white">
+								<i class="fas fa-envelope me-3"></i> pad88899123@gmail.com
+							</p>
+							<p class="text-white">
+								<i class="fas fa-phone me-3"></i> +91 9039082005
+							</p>
+						</div>
+						<!-- Grid column -->
+					</div>
+					<!-- Grid row -->
+				</div>
+			</section>
+		</div>
+	</footer>
+	<!-- Footer -->
+
+
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
