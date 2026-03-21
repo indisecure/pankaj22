@@ -1,11 +1,9 @@
 package pankaj.service;
+
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.http.HttpStatusCode;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -17,6 +15,7 @@ public class ResendService {
         this.webClient = WebClient.builder()
                 .baseUrl("https://api.resend.com")
                 .defaultHeader("Authorization", "Bearer " + apiKey)
+                .defaultHeader("Content-Type", "application/json")
                 .build();
     }
 
@@ -25,14 +24,17 @@ public class ResendService {
                 .uri("/emails")
                 .bodyValue(new EmailRequest("onboarding@resend.dev", to, subject, html))
                 .retrieve()
+                .onStatus(HttpStatusCode::isError, response ->
+                        response.bodyToMono(String.class)
+                                .map(body -> new RuntimeException("Resend error: " + body)))
                 .bodyToMono(String.class);
     }
 
     static class EmailRequest {
-        public String from;
-        public String to;
-        public String subject;
-        public String html;
+        private String from;
+        private String to;
+        private String subject;
+        private String html;
 
         public EmailRequest(String from, String to, String subject, String html) {
             this.from = from;
@@ -40,7 +42,11 @@ public class ResendService {
             this.subject = subject;
             this.html = html;
         }
+
+        // getters (optional but recommended for Jackson)
+        public String getFrom() { return from; }
+        public String getTo() { return to; }
+        public String getSubject() { return subject; }
+        public String getHtml() { return html; }
     }
 }
-
-
