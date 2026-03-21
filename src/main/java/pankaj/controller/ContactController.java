@@ -20,18 +20,17 @@ public class ContactController {
     }
 
     @PostMapping("/contact")
-    public String handleContactForm(@RequestParam String email,
-                                    @RequestParam String subject,
-                                    @RequestParam String message,
-                                    Model model) {
-        String html = "<p><strong>Email:</strong> " + email + "</p>"
-                    + "<p><strong>Subject:</strong> " + subject + "</p>"
-                    + "<p><strong>Message:</strong> " + message + "</p>";
-
-        resendService.sendEmail("pad88899123@gmail.com", subject, html).block();
-
-        model.addAttribute("successMessage", "Message sent successfully!");
-        return "contact"; 
-
+public String handleContactForm(@RequestParam String email,
+                                @RequestParam String subject,
+                                @RequestParam String message,
+                                Model model) {
+    try {
+        resendService.sendEmail(email, subject, message);
+        model.addAttribute("successMessage", "Your message has been sent successfully!");
+    } catch (Exception e) {
+        model.addAttribute("errorMessage", "Failed to send message: " + e.getMessage());
+    }
+    return "contact";
 }
+
 }

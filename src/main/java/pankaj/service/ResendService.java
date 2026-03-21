@@ -19,16 +19,21 @@ public class ResendService {
                 .build();
     }
 
-    public Mono<String> sendEmail(String to, String subject, String html) {
-        return webClient.post()
-                .uri("/emails")
-                .bodyValue(new EmailRequest("onboarding@resend.dev", to, subject, html))
-                .retrieve()
-                .onStatus(HttpStatusCode::isError, response ->
-                        response.bodyToMono(String.class)
-                                .map(body -> new RuntimeException("Resend error: " + body)))
-                .bodyToMono(String.class);
-    }
+    public String sendEmail(String to, String subject, String html) {
+    return webClient.post()
+        .uri("/emails")
+        .header(HttpHeaders.AUTHORIZATION, "Bearer " + apiKey)
+        .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+        .bodyValue(new EmailRequest("onboarding@resend.dev", to, subject, html))
+        .retrieve()
+        .onStatus(HttpStatusCode::isError, response ->
+            response.bodyToMono(String.class)
+                    .flatMap(errorBody -> Mono.error(new RuntimeException("Resend API error: " + errorBody)))
+        )
+        .bodyToMono(String.class)
+        .block(); // block here inside the service
+}
+
 
     static class EmailRequest {
         private String from;
