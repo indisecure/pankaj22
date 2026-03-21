@@ -28,7 +28,7 @@ public class ResendService {
                 .uri("/emails")
                 .bodyValue(new EmailRequest("onboarding@resend.dev", to, subject, html))
                 .retrieve()
-                .onStatus(HttpStatus::isError,
+                .onStatus(status -> status.isError(),
                         response -> response.bodyToMono(String.class)
                                 .flatMap(errorBody -> Mono.error(new RuntimeException("Resend API error: " + errorBody))))
                 .bodyToMono(String.class)
