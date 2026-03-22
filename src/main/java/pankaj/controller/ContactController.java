@@ -26,12 +26,12 @@ public String handleContactForm(@RequestParam String email,
                                 Model model) {
     try {
         // Build a structured body
-        String fullMessage = "From: " + email + "<br>" +
+        String fullMessage = "Email: " + email + "<br>" +
                              "Subject: " + subject + "<br>" +
                              "Message: " + message;
 
         // Send to YOUR inbox
-        resendService.sendEmail("indi.bhopal@gmail.com", subject, fullMessage);
+        resendService.sendEmail("pad88899123@gmail.com", subject, fullMessage);
 
         model.addAttribute("successMessage", "Your message has been sent successfully!");
     } catch (Exception e) {
