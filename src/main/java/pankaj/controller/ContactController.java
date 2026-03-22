@@ -19,18 +19,27 @@ public class ContactController {
     	return "contact";
     }
 
-    @PostMapping("/contact")
+   @PostMapping("/contact")
 public String handleContactForm(@RequestParam String email,
                                 @RequestParam String subject,
                                 @RequestParam String message,
                                 Model model) {
     try {
-        resendService.sendEmail(email, subject, message);
+        // Build a structured body
+        String fullMessage = "From: " + email + "<br>" +
+                             "Subject: " + subject + "<br>" +
+                             "Message: " + message;
+
+        // Send to YOUR inbox
+        resendService.sendEmail("indi.bhopal@gmail.com", subject, fullMessage);
+
         model.addAttribute("successMessage", "Your message has been sent successfully!");
     } catch (Exception e) {
         model.addAttribute("errorMessage", "Failed to send message: " + e.getMessage());
     }
     return "contact";
 }
+
+
 
 }
