@@ -27,7 +27,7 @@ public String handleContactForm(@RequestParam String email,
     try {
         // Build a structured body
         String fullMessage = "Email: " + email + "<br>" +
-                             "Subject: " + subject + "<br>" +
+                             "Full Name: " + subject + "<br>" +
                              "Message: " + message;
 
         // Send to YOUR inbox
